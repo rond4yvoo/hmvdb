@@ -21,7 +21,7 @@ const q = query(colref, orderBy('timestamp'))
 var hmvdoclist = [];
 var hmvlist = [];
 var table = document.getElementById("results-table");
-var currentID = "KeE86C7N8N68EzBnhLDp";
+var currentID = "EFLC2QHQHIp36KqxsXI9";
 var editedID = -1;
 var editeddocID = "";
 
