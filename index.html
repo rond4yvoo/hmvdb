@@ -53,10 +53,15 @@
 			cursor: text;
 		}
 		
+		.add-input {
+			overflow-x: scroll;
+		}
+		
 		.add-input-textarea {
 			height: 100px;
 			padding: 8px;
 			overflow-x: hidden;
+			overflow-y: scroll;
 		}
 		
 		.view-input, .view-input-textarea {
@@ -104,6 +109,7 @@
 		table {
 			margin-left: auto;
 			margin-right: auto;
+			margin-bottom: 36px;
 			width: 100%;
 			min-width: 500px;
 			border-collapse: collapse;
@@ -115,7 +121,7 @@
 			padding: 2px 6px 2px 6px;
 		}
 		
-		#results-table tr > *:nth-child(5) {
+		#results-table tr > *:nth-child(3), #results-table tr > *:nth-child(5) {
 			display: none;
 		}
 		
@@ -140,7 +146,7 @@
 		
 		.info-box {
 			position: absolute;
-			height: 560px;
+			height: 540px;
 			width: 860px;
 			padding: 16px;
 			border-radius: 4px;
@@ -154,6 +160,7 @@
 		
 		.popup-box {
 			position: absolute;
+			width: 400px;
 			padding: 16px;
 			border-radius: 4px;
 			display: flex;
@@ -165,7 +172,7 @@
 		
 		.forms {
 			width: 90%; 
-			height: 90%; 
+			height: 96%; 
 			display: flex; 
 			flex-direction: column; 
 			align-items: flex-start; 
@@ -202,8 +209,8 @@
 	<table id="results-table">
 		<thead>
 			<tr>
-				<th>Title</th>
-				<th>Creator(s)</th>
+				<th style="width: 50%">Title</th>
+				<th style="width: 15%">Creator(s)</th>
 				<th>Hentai Used</th>
 				<th>Song(s) Used</th>
 				<th>Tags</th>
@@ -230,7 +237,7 @@
 				<div>Song(s) Used</div>
 				<textarea name="songs" class="add-input-textarea" placeholder="e.g. 'Song 1, Song 2'"></textarea>
 				<div>Magnet/Download Link</div>
-				<input name="link" type="text" class="add-input">
+				<textarea name="link" class="add-input-textarea" class="add-input"></textarea>
 				<div>Tags</div>
 				<textarea name="tags" class="add-input-textarea" placeholder="e.g. 'elf, hypnosis, big breasts'"></textarea>
 				<input type="submit" value="Submit" class=search-button style="align-self: flex-end;">
@@ -259,7 +266,7 @@
 				<div>Song(s) Used</div>
 				<div id="view-songs" class="view-input-textarea"></div>
 				<div>Magnet/Download Link</div>
-				<div id="view-link" class="view-input"></div>
+				<div id="view-link" class="view-input-textarea"></div>
 				<div>Tags</div>
 				<div id="view-tags" class="view-input-textarea"></div>
 			</div>
@@ -274,7 +281,7 @@
 				<div>Song(s) Used</div>
 				<textarea id="edit-songs" class="add-input-textarea" placeholder="e.g. 'Song 1, Song 2'"></textarea>
 				<div>Magnet/Download Link</div>
-				<input id="edit-link" type="text" class="add-input">
+				<textarea id="edit-link" type="text" class="add-input-textarea"></textarea>
 				<div>Tags</div>
 				<textarea id="edit-tags" class="add-input-textarea" placeholder="e.g. 'elf, hypnosis, big breasts'"></textarea>
 				<input id="submit-edit-button" type="submit" value="Submit" class=search-button style="align-self: flex-end;">
@@ -290,7 +297,7 @@
 	</div>
 	
 	<div id="warning-overlay", class=overlay>
-		<div class=popup-box style="width: 400px;">
+		<div class=popup-box>
 			<div id="warning-text"></div>
 			<button class="search-button" onclick="warningOff()" style="width=75%;">No</button>
 			<button id="confirm-delete-button" class="search-button" onclick="warningOff()" style="width=75%; color: #FF5555;">Yes</button>
