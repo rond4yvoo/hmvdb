@@ -30,12 +30,18 @@ getDocs(colref).then((snapshot) => {
 		hmvdoclist.push({ ...doc.data(), id: doc.id });
 	})
 	
+	var indexoffset = 0;
+	var totaloffset = 0;
 	hmvdoclist.forEach((hmvdoc, docindex) => {
+		totaloffset = indexoffset;
 		hmvdoc.mainArray.forEach((hmv, hmvindex) => {
 			hmvlist.push(hmv);
 			var row = table.getElementsByTagName('tbody')[0].insertRow();
 			row.className += 'show-row-info';
-			row.onclick = function() { viewOverlayOn(hmvdoc.id, hmvindex) };
+			let sum = hmvindex + totaloffset;
+			row.onclick = function() { viewOverlayOn(hmvdoc.id, sum) };
+			row.id = hmvdoc.id + "-" + sum;
+			indexoffset++;
 			var tcell = row.insertCell();
 			var ccell = row.insertCell();
 			var hcell = row.insertCell();
