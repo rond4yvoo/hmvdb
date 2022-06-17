@@ -230,17 +230,17 @@
 			
 			<form class=forms id="add-form">
 				<div>Title</div>
-				<input name="title" type="text" class="add-input" placeholder="e.g. 'Example Title'" required>
+				<input name="title" type="text" class="add-input" maxlength="100" placeholder="e.g. 'Example Title'" required>
 				<div>Creator(s)</div>
-				<input name="creators" type="text" class="add-input" placeholder="e.g. 'Creator 1, Creator 2'" required>
+				<input name="creators" type="text" class="add-input" maxlength="50" placeholder="e.g. 'Creator 1, Creator 2'" required>
 				<div>Hentai Used</div>
-				<textarea name="hentai" class="add-input-textarea" placeholder="e.g. 'Hentai 1, Hentai 2, Hentai 3'"></textarea>
+				<textarea name="hentai" class="add-input-textarea" maxlength="250" placeholder="e.g. 'Hentai 1, Hentai 2, Hentai 3'"></textarea>
 				<div>Song(s) Used</div>
-				<textarea name="songs" class="add-input-textarea" placeholder="e.g. 'Song 1, Song 2'"></textarea>
+				<textarea name="songs" class="add-input-textarea" maxlength="250" placeholder="e.g. 'Song 1, Song 2'"></textarea>
 				<div>Magnet/Download Link</div>
-				<textarea name="link" class="add-input-textarea" class="add-input"></textarea>
+				<textarea name="link" class="add-input-textarea" maxlength="250" class="add-input"></textarea>
 				<div>Tags</div>
-				<textarea name="tags" class="add-input-textarea" placeholder="e.g. 'elf, hypnosis, big breasts'"></textarea>
+				<textarea name="tags" class="add-input-textarea" maxlength="250" placeholder="e.g. 'elf, hypnosis, big breasts'"></textarea>
 				<input type="submit" value="Submit" class=search-button style="align-self: flex-end;">
 			</form>
 		</div>
