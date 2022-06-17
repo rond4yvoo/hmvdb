@@ -75,11 +75,11 @@
 			width: 400px;
 			padding: 9px 10px 9px 10px;
 			cursor: text;
+			overflow-y: scroll;
 		}
 		
 		.view-input-textarea {
 			height: 98px;
-			overflow-x: hidden;
 		}
 		
 		.search-button {
@@ -190,6 +190,7 @@
 		<p class=banner>
 			<b>HMVDB</b>
 			<button class=search-button style="margin-left: 24px;" onclick="addOverlayOn()">+ Add HMV</button>
+			<button class=search-button style="margin-left: 24px;" onclick="window.location.href='https://github.com/rond4yvoo/hmvdb'">Github</button>
 		</p>
 		<div class=banner style="font-size:20px;">
 			<text>Included search filters:</text>
@@ -273,17 +274,17 @@
 			
 			<form class=forms id="edit-form" style="display:none;">
 				<div>Title</div>
-				<input id="edit-title" type="text" class="add-input" placeholder="e.g. 'Example Title'">
+				<input id="edit-title" type="text" class="add-input" maxlength="100" placeholder="e.g. 'Example Title'">
 				<div>Creator(s)</div>
-				<input id="edit-creators" type="text" class="add-input" placeholder="e.g. 'Creator 1, Creator 2'">
+				<input id="edit-creators" type="text" class="add-input" maxlength="50" placeholder="e.g. 'Creator 1, Creator 2'">
 				<div>Hentai Used</div>
-				<textarea id="edit-hentai" class="add-input-textarea" placeholder="e.g. 'Hentai 1, Hentai 2, Hentai 3'"></textarea>
+				<textarea id="edit-hentai" class="add-input-textarea" maxlength="250" placeholder="e.g. 'Hentai 1, Hentai 2, Hentai 3'"></textarea>
 				<div>Song(s) Used</div>
-				<textarea id="edit-songs" class="add-input-textarea" placeholder="e.g. 'Song 1, Song 2'"></textarea>
+				<textarea id="edit-songs" class="add-input-textarea" maxlength="250" placeholder="e.g. 'Song 1, Song 2'"></textarea>
 				<div>Magnet/Download Link</div>
-				<textarea id="edit-link" type="text" class="add-input-textarea"></textarea>
+				<textarea id="edit-link" type="text" class="add-input-textarea" maxlength="250"></textarea>
 				<div>Tags</div>
-				<textarea id="edit-tags" class="add-input-textarea" placeholder="e.g. 'elf, hypnosis, big breasts'"></textarea>
+				<textarea id="edit-tags" class="add-input-textarea" maxlength="250" placeholder="e.g. 'elf, hypnosis, big breasts'"></textarea>
 				<input id="submit-edit-button" type="submit" value="Submit" class=search-button style="align-self: flex-end;">
 			</form>
 		</div>

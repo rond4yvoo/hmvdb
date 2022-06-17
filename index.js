@@ -21,6 +21,7 @@ const q = query(colref, orderBy('timestamp'))
 var hmvdoclist = [];
 var hmvlist = [];
 var table = document.getElementById("results-table");
+var fTable;
 var currentID = "EFLC2QHQHIp36KqxsXI9";
 var editedID = -1;
 var editeddocID = "";
@@ -59,7 +60,7 @@ getDocs(colref).then((snapshot) => {
 			tagcell.appendChild(tags);
 		})
 	})
-	$("#results-table").fancyTable({
+	fTable = $("#results-table").fancyTable({
 		pagination: true,
 		perPage: 50,
 		inputStyle: `font-family: "Consolas", sans-serif;
@@ -73,8 +74,7 @@ getDocs(colref).then((snapshot) => {
 			cursor: text;`,
 		paginationClass: "search-button",
 		paginationClassActive: "active-pagination",
-		globalSearch:true,
-		globalSearchExcludeColumns: getFilterArray()
+		globalSearch:true
 	});
 })
 
@@ -184,24 +184,28 @@ editHMVForm.addEventListener('submit', (e) => {
 	})
 })
 
-function getFilterArray() {
-	let filterArray = [];
-	
-	if (!document.getElementById("title-checkbox").checked) {
-		filterArray.push(1);
-	}
-	if (!document.getElementById("creators-checkbox").checked) {
-		filterArray.push(2);
-	}
-	if (!document.getElementById("hentai-checkbox").checked) {
-		filterArray.push(3);
-	}
-	if (!document.getElementById("songs-checkbox").checked) {
-		filterArray.push(4);
-	}
-	if (!document.getElementById("tags-checkbox").checked) {
-		filterArray.push(5);
-	}
-	
-	return filterArray;
-}
+var checkboxes = document.querySelectorAll("input[type=checkbox]");
+checkboxes.forEach(function(checkbox) {
+	checkbox.addEventListener('change', function() {
+		let filterArray = [];
+		
+		if (!document.getElementById("title-checkbox").checked) {
+			filterArray.push(1);
+		}
+		if (!document.getElementById("creators-checkbox").checked) {
+			filterArray.push(2);
+		}
+		if (!document.getElementById("hentai-checkbox").checked) {
+			filterArray.push(3);
+		}
+		if (!document.getElementById("songs-checkbox").checked) {
+			filterArray.push(4);
+		}
+		if (!document.getElementById("tags-checkbox").checked) {
+			filterArray.push(5);
+		}
+		
+		fTable.settings.globalSearchExcludeColumns = filterArray;
+		fTable.reinit();
+	})
+});
